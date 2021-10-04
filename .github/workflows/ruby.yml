@@ -33,6 +33,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependent libraries
       run: sudo apt-get install libpq-dev
+
+    - name: Install codeclimate test coverage lib
+      run: |
+        [ -f ./cc-test-reporter ] || curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-0.6.3-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
     - name: Setup node
       uses: actions/setup-node@v2
       with:
@@ -57,7 +62,10 @@ jobs:
     - name: "Install js packages"
       run: "yarn install"
     - name: Run tests
-      run: bundle exec rake
+      run: |
+        ./cc-test-reporter before-build
+        bundle exec rake
+        ./cc-test-reporter after-build --coverage-input-type simplecov --debug
       env:
         RAILS_ENV: test
         POSTGRES_USER: postgres
