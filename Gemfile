@@ -64,6 +64,8 @@ gem 'letsencrypt-rails-heroku', group: 'production'
 group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
+  # Does not increase Simplecov version until the following issue has been resolved
+  # https://github.com/codeclimate/test-reporter/issues/418
   gem 'simplecov', '~> 0.10', '< 0.18', require: false
   gem 'codeclimate-test-reporter', require: nil
   gem 'capybara-selenium'
