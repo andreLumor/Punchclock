@@ -71,3 +71,4 @@ jobs:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
         OTP_ENCRYPTION_KEY: 1ex1ex1ex1ex1ex1ex1ex1ex1ex1ex1ex1ex1ex1ex1ex1ex1e
+        CC_TEST_REPORTER_ID: ${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}
