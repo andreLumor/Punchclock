@@ -152,7 +152,7 @@ feature 'Punches Dashboard', js: true do
       morning_end_input.set('12:00')   
 
       lunch_start_input.set('13:00')
-      lunch_end_input.set(1.hour.from_now.to_s(:time))      
+      lunch_end_input.set(1.hour.from_now.to_fs(:time))      
 
       alert_message = accept_alert { click_on 'Salvar' }
       
